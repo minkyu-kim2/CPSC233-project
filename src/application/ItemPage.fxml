@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="598.0" prefWidth="355.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <HBox prefHeight="51.0" prefWidth="355.0">
+         <children>
+            <Label text="Name" />
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="355.0">
+         <children>
+            <Label text="Category:" />
+         </children>
+      </HBox>
+      <HBox prefHeight="46.0" prefWidth="355.0">
+         <children>
+            <Label text="Price: " />
+         </children>
+      </HBox>
+      <VBox prefHeight="129.0" prefWidth="355.0">
+         <children>
+            <Label text="Detail:" />
+         </children>
+      </VBox>
+      <HBox prefHeight="0.0" prefWidth="355.0">
+         <children>
+            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" text="Edit" />
+            <Button mnemonicParsing="false" text="Close" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
