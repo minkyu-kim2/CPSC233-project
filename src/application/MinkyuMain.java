@@ -32,9 +32,9 @@ public class MinkyuMain extends Application {
 	}
 	
 	public ShoppingCartViewer createSampleCart() {
-		Item item1 = new Item("Rav4", 50000, "brand new");
-		Item item2 = new Item("Iphone 13", 1000, "normal model");
-		Item item3 = new Item("Banana", 5, "weighs 2kg");
+		Item item1 = new Item("Rav4", 50000, "brand new", 1);
+		Item item2 = new Item("Iphone 13", 1000, "normal model", 1);
+		Item item3 = new Item("Banana", 5, "weighs 2kg", 1);
 		ArrayList<Item> itemList = new ArrayList<Item>(Arrays.asList(item1, item2, item3));
 		
 		return new ShoppingCartViewer(itemList); 

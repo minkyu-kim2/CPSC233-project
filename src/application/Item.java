@@ -5,11 +5,13 @@ public class Item {
 	private double price;
 	private String category;
 	private String description;
+	private int quantity;
 	
-	public Item(String name, double price, String description) {
+	public Item(String name, double price, String description, int quantity) {
 		setName(name);
 		setPrice(price);
 		setDescription(description);
+		setQuantity(quantity);
 	}
 	
 	public String getName() {
@@ -29,6 +31,14 @@ public class Item {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public int getQuantity() {
+		return quantity; 
+	}
+	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity; 
 	}
 	
 	
