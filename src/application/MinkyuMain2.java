@@ -30,9 +30,9 @@ public class MinkyuMain2 extends Application {
 			ShoppingListController shoppingListController = loader.getController(); 
 			shoppingListController.setApplicationStage(primaryStage);
 			
-			ArrayList<Item> sampleCart = createSampleList(); 
-			shoppingListController.setItems(sampleCart);
-			shoppingListController.appendItems();
+			ShoppingList sampleList = createSampleList(); 
+			shoppingListController.setShoppingList(sampleList);
+			//shoppingListController.appendItems();
 			shoppingListController.showPage();
 			
 			
@@ -47,12 +47,13 @@ public class MinkyuMain2 extends Application {
 		launch(args);
 	}
 	
-	public ArrayList<Item> createSampleList() {
+	public ShoppingList createSampleList() {
 		Item item1 = new Item("Rav4", 50000, "brand new", 1);
 		Item item2 = new Item("Iphone 13", 1000, "normal model", 1);
 		Item item3 = new Item("Banana", 5, "weighs 2kg", 1);
 		ArrayList<Item> itemList = new ArrayList<Item>(Arrays.asList(item1, item2, item3));
+		ShoppingList sample = new ShoppingList(itemList);
 		
-		return itemList; 
+		return sample; 
 	}
 }

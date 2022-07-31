@@ -19,9 +19,8 @@ import javafx.stage.Stage;
 
 public class ShoppingListController {
 	private static String pathToFxml = "src/application/ShoppingList.fxml";
-	private ArrayList<Item> items;
-	private double totalPrice; 
 	private Stage applicationStage; 
+	private ShoppingList shoppingList;
 	
     @FXML
     private Label projectGradeTextfield;
@@ -48,12 +47,10 @@ public class ShoppingListController {
  		
 	}
 	
-	public void setItems(ArrayList<Item> items) {
-		this.items = items; 
-	}
 	
 	public void appendItems() {
-		for (Item item : this.items) {
+		
+		for (Item item : shoppingList.getItems()) {
         	HBox itemRow = new HBox();
         	Label itemLabel = new Label("name: " + item.getName() + " price:" + item.getPrice());
         	Button detailButton = new Button("detail");        	
@@ -67,9 +64,18 @@ public class ShoppingListController {
 	}
 	
 	public void showPage() throws FileNotFoundException, IOException {
+		this.appendItems();
 		applicationStage.setTitle("my shopping list");
 		applicationStage.show();
 		
+	}
+
+	public ShoppingList getShoppingList() {
+		return shoppingList;
+	}
+
+	public void setShoppingList(ShoppingList shoppingList) {
+		this.shoppingList = shoppingList;
 	}
 	
 }
