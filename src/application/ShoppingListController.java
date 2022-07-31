@@ -1,4 +1,4 @@
-package controllers;
+package application;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ShoppingListController {
-	private static String pathToFxml = "src/fxml/ShoppingList.fxml";
+	private static String pathToFxml = "src/application/ShoppingList.fxml";
 	private ArrayList<Item> items;
 	private double totalPrice; 
 	private Stage applicationStage; 
@@ -62,13 +62,11 @@ public class ShoppingListController {
     	}
 	}
 	
+	public static String getPathToFxml() {
+		return ShoppingListController.pathToFxml;
+	}
 	
 	public void showPage() throws FileNotFoundException, IOException {
-		FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream(ShoppingListController.pathToFxml));
-		
-		Scene scene = new Scene(root,1000,400);
-		applicationStage.setScene(scene);
 		applicationStage.setTitle("my shopping list");
 		applicationStage.show();
 		
