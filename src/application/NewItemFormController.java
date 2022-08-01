@@ -26,7 +26,10 @@ public class NewItemFormController {
 	@FXML TextField priceInput;
 	@FXML TextArea descriptionInput;
 	@FXML TextField quantityInput;
-	@FXML public void delete(ActionEvent event) {}
+	@FXML public void delete(ActionEvent event) throws FileNotFoundException, IOException{
+		shoppingList.getItems().remove(item);
+		close(event);
+	}
 	
 	@FXML public void save(ActionEvent event) {
 		
