@@ -54,6 +54,24 @@ public class ShoppingListController {
         	HBox itemRow = new HBox();
         	Label itemLabel = new Label("name: " + item.getName() + " price:" + item.getPrice());
         	Button detailButton = new Button("detail");        	
+        	
+        	//on button click, load the item detail page
+        	detailButton.setOnAction(e -> {
+        		try {
+            		FXMLLoader loader = new FXMLLoader();
+            		VBox root = loader.load(new FileInputStream(ItemPageController.getPathToFxml()));
+            		Scene scene = new Scene(root,500,400);
+        			ItemPageController itemPageController = loader.getController(); 
+        			itemPageController.setItem(item);
+        			itemPageController.setApplicationStage(this.applicationStage);
+        			itemPageController.fillPage();
+        			applicationStage.setScene(scene);
+        		} catch (Exception exception){
+        			exception.printStackTrace();
+        		}
+
+        	});
+        	
         	itemRow.getChildren().addAll(itemLabel, detailButton);
         	itemStack.getChildren().add(itemRow);
     	}
@@ -63,7 +81,7 @@ public class ShoppingListController {
 		return ShoppingListController.pathToFxml;
 	}
 	
-	public void showPage() throws FileNotFoundException, IOException {
+	public void fillPage() throws FileNotFoundException, IOException {
 		this.appendItems();
 		applicationStage.setTitle("my shopping list");
 		applicationStage.show();
@@ -76,6 +94,12 @@ public class ShoppingListController {
 
 	public void setShoppingList(ShoppingList shoppingList) {
 		this.shoppingList = shoppingList;
+	}
+	
+	public void showItemPage(ActionEvent event, Item item) throws FileNotFoundException, IOException {
+		FXMLLoader loader = new FXMLLoader();
+		VBox root = loader.load(new FileInputStream(ItemPageController.getPathToFxml()));
+		Scene scene = new Scene(root,500,400);
 	}
 	
 }

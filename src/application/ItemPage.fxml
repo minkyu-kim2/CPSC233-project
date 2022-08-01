@@ -14,13 +14,19 @@
       </HBox>
       <HBox prefHeight="44.0" prefWidth="355.0">
          <children>
+            <Label text="Quantity: " />
+            <Label fx:id="quantityLabel" />
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="355.0">
+         <children>
             <Label text="Category:" />
             <Label fx:id="categoryLabel" />
          </children>
       </HBox>
       <HBox prefHeight="46.0" prefWidth="355.0">
          <children>
-            <Label text="Price: " />
+            <Label text="Unit price: " />
             <Label fx:id="priceLabel" />
          </children>
       </HBox>

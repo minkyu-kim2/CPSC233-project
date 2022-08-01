@@ -7,11 +7,12 @@ public class Item {
 	private String description;
 	private int quantity;
 	
-	public Item(String name, double price, String description, int quantity) {
+	public Item(String name, double price, String description, int quantity, String catogory) {
 		setName(name);
 		setPrice(price);
 		setDescription(description);
 		setQuantity(quantity);
+		setCategory(category);
 	}
 	
 	public String getName() {
@@ -39,6 +40,14 @@ public class Item {
 	
 	public void setQuantity(int quantity) {
 		this.quantity = quantity; 
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	
