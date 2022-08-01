@@ -21,11 +21,11 @@ public class Main extends Application {
 			
 			
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
+			VBox root = loader.load(new FileInputStream(ShoppingListPageController.getPathToFxml()));
 			
 			Scene scene = new Scene(root,500,400);
 			primaryStage.setScene(scene);
-			ShoppingListController shoppingListController = loader.getController(); 
+			ShoppingListPageController shoppingListController = loader.getController(); 
 			shoppingListController.setApplicationStage(primaryStage);
 			
 			ShoppingList sampleList = createSampleList(); 

@@ -31,11 +31,11 @@ public class CategorySelectionPageController {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root;
 		try {
-			root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
+			root = loader.load(new FileInputStream(ShoppingListPageController.getPathToFxml()));
 			Scene scene = new Scene(root,500,400);
 			getApplicationStage().setScene(scene);
 			getApplicationStage().setTitle("my shopping list");
-			ShoppingListController shoppingListController = loader.getController(); 
+			ShoppingListPageController shoppingListController = loader.getController(); 
 			shoppingListController.setApplicationStage(getApplicationStage());
 			shoppingListController.setShoppingList(getShoppingList());
 			shoppingListController.fillPage();

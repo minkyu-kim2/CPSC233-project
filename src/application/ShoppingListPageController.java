@@ -17,7 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ShoppingListController {
+public class ShoppingListPageController {
 	private static String pathToFxml = "src/application/ShoppingList.fxml";
 	private Stage applicationStage; 
 	private ShoppingList shoppingList;
@@ -31,11 +31,11 @@ public class ShoppingListController {
     @FXML
     private VBox itemStack; 
     
-	public ShoppingListController(Item item) {
+	public ShoppingListPageController(Item item) {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ShoppingListController() {
+	public ShoppingListPageController() {
 		
 	}
 
@@ -98,7 +98,7 @@ public class ShoppingListController {
 	}
 	
 	public static String getPathToFxml() {
-		return ShoppingListController.pathToFxml;
+		return ShoppingListPageController.pathToFxml;
 	}
 	
 	public void fillPage() throws FileNotFoundException, IOException {
