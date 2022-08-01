@@ -47,12 +47,15 @@ public class ShoppingListController {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root;
 		try {
+			Scene currentScene = applicationStage.getScene();
+			
 			root = loader.load(new FileInputStream(CategorySelectionPageController.getPathToFxml()));
 			Scene scene = new Scene(root,500,400);
 			applicationStage.setScene(scene);
 			applicationStage.setTitle("my shopping list");
 			CategorySelectionPageController controller = loader.getController(); 
 			
+			controller.setPreviousScene(currentScene);
 			controller.setItem(new Item());
 			
 			controller.setApplicationStage(applicationStage);

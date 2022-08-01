@@ -22,12 +22,17 @@ public class ShoppingList {
 		this.items = items;
 	}
 	
-	public void addItem(Item item) {
+	public void add(Item item) {
 		if (items == null)
 			items = new ArrayList<Item>();
 		items.add(item);
 	}
 
+	public boolean contains(Item item) {
+		return items.contains(item);
+	}
+	
+	
 	public double getTotalPrice() {
 		return 0;
 	}

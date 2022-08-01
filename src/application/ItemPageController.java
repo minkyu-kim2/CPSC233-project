@@ -25,22 +25,25 @@ public class ItemPageController {
 	@FXML Label detailLabel;
 	@FXML Label quantityLabel;
 	@FXML public void delete(ActionEvent event) {}
-	@FXML public void edit(ActionEvent event) {}
 	
-	
-	@FXML 
-	public void close(ActionEvent event) {
+	@FXML public void edit(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root;
 		try {
-			root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
+			Scene currentScene = applicationStage.getScene();
+			
+			root = loader.load(new FileInputStream(CategorySelectionPageController.getPathToFxml()));
 			Scene scene = new Scene(root,500,400);
 			applicationStage.setScene(scene);
 			applicationStage.setTitle("my shopping list");
-			ShoppingListController shoppingListController = loader.getController(); 
-			shoppingListController.setApplicationStage(applicationStage);
-			shoppingListController.setShoppingList(shoppingList);
-			shoppingListController.fillPage();
+			CategorySelectionPageController controller = loader.getController(); 
+			
+			controller.setPreviousScene(currentScene);
+			controller.setItem(item);
+			
+			controller.setApplicationStage(applicationStage);
+			controller.setShoppingList(shoppingList);
+			controller.fillPage();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,6 +51,23 @@ public class ItemPageController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	
+	@FXML 
+	public void close(ActionEvent event) throws FileNotFoundException, IOException{
+		FXMLLoader loader = new FXMLLoader();
+		VBox root;
+
+		root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
+		Scene scene = new Scene(root,500,400);
+		applicationStage.setScene(scene);
+		applicationStage.setTitle("my shopping list");
+		ShoppingListController shoppingListController = loader.getController(); 
+		shoppingListController.setApplicationStage(applicationStage);
+		shoppingListController.setShoppingList(shoppingList);
+		shoppingListController.fillPage();
+
 	}
 
 

@@ -18,12 +18,13 @@ public class CategorySelectionPageController {
     private Stage applicationStage; 
 	private Item item; 
 	private ShoppingList shoppingList; 
+	private Scene previousScene;
     
 	@FXML
     private ChoiceBox<String> categoryChoiceBox;
     
-	public void ss() {
-		
+	@FXML public void onClickBack(ActionEvent event) {
+		applicationStage.setScene(previousScene);		
 	}
 	
 	public void toMain() {
@@ -130,6 +131,12 @@ public class CategorySelectionPageController {
 	public void setApplicationStage(Stage applicationStage) {
 		this.applicationStage = applicationStage;
 	}
+
+	public void setPreviousScene(Scene previousScene) {
+		this.previousScene = previousScene;
+	}
+
+	
 	
 	
 }

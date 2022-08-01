@@ -15,7 +15,7 @@ public class Item {
 		setCategory("other");
 	}
 	
-	public Item(String name, double price, String description, int quantity, String catogory) {
+	public Item(String name, double price, String description, int quantity, String category) {
 		setName(name);
 		setPrice(price);
 		setDescription(description);

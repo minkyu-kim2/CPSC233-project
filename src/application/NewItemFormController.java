@@ -27,28 +27,24 @@ public class NewItemFormController {
 	@FXML TextArea descriptionInput;
 	@FXML TextField quantityInput;
 	@FXML public void delete(ActionEvent event) {}
-	@FXML public void save(ActionEvent event) {}
-	@FXML public void close(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		VBox root;
-		try {
-			root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
-			Scene scene = new Scene(root,500,400);
-			applicationStage.setScene(scene);
-			applicationStage.setTitle("my shopping list");
-			ShoppingListController shoppingListController = loader.getController(); 
-			shoppingListController.setApplicationStage(applicationStage);
-			shoppingListController.setShoppingList(shoppingList);
-			shoppingListController.fillPage();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+	@FXML public void save(ActionEvent event) {
+		
+		item.setName(nameInput.getText());
+		item.setPrice(Double.parseDouble(priceInput.getText()));
+		item.setQuantity(Integer.parseInt(quantityInput.getText()));
+		item.setDescription(descriptionInput.getText());
+		
+		if (!shoppingList.contains(item)) {
+			shoppingList.add(item);
 		}
 		
-
+		goToMainPage();
+			
+	}
+	
+	@FXML public void close(ActionEvent event) {
+		goToMainPage();
 	}
 
 
@@ -85,4 +81,25 @@ public class NewItemFormController {
 		this.shoppingList = shoppingList;
 	}
 
+	public void goToMainPage() {
+		FXMLLoader loader = new FXMLLoader();
+		VBox root;
+		try {
+			root = loader.load(new FileInputStream(ShoppingListController.getPathToFxml()));
+			Scene scene = new Scene(root,500,400);
+			applicationStage.setScene(scene);
+			applicationStage.setTitle("my shopping list");
+			ShoppingListController shoppingListController = loader.getController(); 
+			shoppingListController.setApplicationStage(applicationStage);
+			shoppingListController.setShoppingList(shoppingList);
+			shoppingListController.fillPage();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

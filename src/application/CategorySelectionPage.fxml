@@ -23,7 +23,7 @@
       </ChoiceBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="back" />
+            <Button mnemonicParsing="false" onAction="#onClickBack" text="back" />
             <Button mnemonicParsing="false" onAction="#onClickNext" text="next" />
          </children>
       </HBox>
