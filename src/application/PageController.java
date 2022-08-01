@@ -10,14 +10,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PageController {
-	private Item item; 
-	private ShoppingList shoppingList;
-	private Stage applicationStage;
+	protected Item item; 
+	protected ShoppingList shoppingList;
+	protected Stage applicationStage;
 	
 	public void goToMain() {
 		
 	}
-	public void loadPage(Item item, String filePath, Stage applicationStage, ShoppingList shoppingList, String pageTitle) throws FileNotFoundException, IOException {
+	public PageController loadPage(Item item, String filePath, Stage applicationStage, ShoppingList shoppingList, String pageTitle) throws FileNotFoundException, IOException {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root = loader.load(new FileInputStream(filePath));
 		Scene scene = new Scene(root,500,400);
@@ -27,7 +27,7 @@ public class PageController {
 		pageController.setShoppingList(shoppingList);
 		pageController.fillPage();
 		applicationStage.setScene(scene);
-		
+		return pageController; 
 
 	}
 	

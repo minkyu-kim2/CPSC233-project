@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-public class CategorySelectionPageController {
+public class CategorySelectionPageController extends PageController {
     private static String pathToFxml = "src/application/CategorySelectionPage.fxml";
     private Stage applicationStage; 
 	private Item item; 

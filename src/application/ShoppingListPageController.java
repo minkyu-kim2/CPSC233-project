@@ -18,8 +18,6 @@ import javafx.stage.Stage;
 
 public class ShoppingListPageController extends PageController{
 	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
-	private Stage applicationStage; 
-	private ShoppingList shoppingList;
 	
     @FXML
     private Label projectGradeTextfield;
@@ -30,38 +28,11 @@ public class ShoppingListPageController extends PageController{
     @FXML
     private VBox itemStack; 
     
-	public void setApplicationStage(Stage applicationStage) {
-		this.applicationStage = applicationStage; 
-	}
 	
-	public void addNewItem(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		VBox root;
-		try {
-			Scene currentScene = applicationStage.getScene();
-			
-			root = loader.load(new FileInputStream(CategorySelectionPageController.getPathToFxml()));
-			Scene scene = new Scene(root,500,400);
-			applicationStage.setScene(scene);
-			applicationStage.setTitle("my shopping list");
-			CategorySelectionPageController controller = loader.getController(); 
-			
-			controller.setPreviousScene(currentScene);
-			controller.setItem(null);
-			
-			controller.setApplicationStage(applicationStage);
-			controller.setShoppingList(shoppingList);
-			
-			System.out.println("at ShoppingListController" + shoppingList.getItems().size());
-			
-			controller.fillPage();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void addNewItem(ActionEvent event) throws FileNotFoundException, IOException {
+		Scene currentScene = applicationStage.getScene();
+		CategorySelectionPageController controller = (CategorySelectionPageController) loadPage(null, CategorySelectionPageController.getPathToFxml(), applicationStage, shoppingList, "create a new item");
+		controller.setPreviousScene(currentScene);
 	}
 	
 	
@@ -115,8 +86,5 @@ public class ShoppingListPageController extends PageController{
 			pathToFxml = ItemPageController.getPathToFxml();
 		
 		super.loadPage(item, pathToFxml, applicationStage, shoppingList, "Item: " + item.getName());
-		
-
 	}
-	
 }
