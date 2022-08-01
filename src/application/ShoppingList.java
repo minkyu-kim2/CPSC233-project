@@ -23,6 +23,12 @@ public class ShoppingList {
 		this.items = items;
 	}
 	
+	/**
+	 * This function adds item to the shopping list object.
+	 * 
+	 * @param item
+	 * @return
+	 */
 	public boolean add(Item item) {
 		if (items == null)
 			items = new ArrayList<Item>();
