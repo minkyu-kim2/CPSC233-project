@@ -21,13 +21,6 @@ public class CategorySelectionPageController extends PageController {
 		applicationStage.setScene(previousScene);		
 	}
 
-	public void fillPage() {
-		if (item == null)
-			categoryChoiceBox.setValue("other");
-		else
-			categoryChoiceBox.setValue(item.getCategory());
-	}
-
 	@FXML public void onClickNext(ActionEvent event) throws FileNotFoundException, IOException {
 		String pathToFxml;
 		if (categoryChoiceBox.getValue().trim().compareTo("car") == 0) {
@@ -48,11 +41,6 @@ public class CategorySelectionPageController extends PageController {
 		loadPage(item, pathToFxml, applicationStage, shoppingList, "create or edit");
 	}
 
-	public static String getPathToFxml() {
-		return pathToFxml;
-	}
-
-
 	public void setPreviousScene(Scene previousScene) {
 		this.previousScene = previousScene;
 	}
@@ -60,5 +48,16 @@ public class CategorySelectionPageController extends PageController {
 
 	public void setPreviousTitle(String previousTitle) {
 		this.previousTitle = previousTitle;
+	}
+
+	public void fillPage() {
+		if (item == null)
+			categoryChoiceBox.setValue("other");
+		else
+			categoryChoiceBox.setValue(item.getCategory());
+	}
+
+	public static String getPathToFxml() {
+		return pathToFxml;
 	}
 }

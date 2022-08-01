@@ -11,19 +11,6 @@ public class NewCarFormController extends NewItemFormController {
 	@FXML TextField yearInput;
 
 	/**
-	 * This function fills the form with an existing data for editing. 
-	 */
-	public void fillPage() {
-
-		if (getItem() instanceof Car) {
-			modelInput.setText(((Car)item).getModel());
-			makeInput.setText(((Car)item).getMake());
-			yearInput.setText(((Car)item).getYear()+"");
-		}
-		super.fillPage();
-	}
-	
-	/**
 	 * In case the edited item is of type item, this function makes sure the edited object has type Car. 
 	 */
 	public void checkType() {
@@ -48,6 +35,19 @@ public class NewCarFormController extends NewItemFormController {
 		((Car)item).setMake(makeInput.getText());
 		((Car)item).setYear(Integer.parseInt(yearInput.getText()));
 		super.updateItemInfo();
+	}
+
+	/**
+	 * This function fills the form with an existing data for editing. 
+	 */
+	public void fillPage() {
+	
+		if (getItem() instanceof Car) {
+			modelInput.setText(((Car)item).getModel());
+			makeInput.setText(((Car)item).getMake());
+			yearInput.setText(((Car)item).getYear()+"");
+		}
+		super.fillPage();
 	}
 
 	public static String getPathToFxml() {

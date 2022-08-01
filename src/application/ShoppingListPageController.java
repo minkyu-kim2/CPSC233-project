@@ -66,23 +66,6 @@ public class ShoppingListPageController extends PageController{
     	}
 	}
 	
-	public static String getPathToFxml() {
-		return ShoppingListPageController.pathToFxml;
-	}
-	
-	/**
-	 * This function fills the ShoppingListPage with the saved data as a ShoppingList object
-	 * 
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	public void fillPage() throws FileNotFoundException, IOException {
-		this.appendItems();
-		applicationStage.setTitle("my shopping list");
-		applicationStage.show();
-		
-	}
-
 	public ShoppingList getShoppingList() {
 		return shoppingList;
 	}
@@ -107,5 +90,24 @@ public class ShoppingListPageController extends PageController{
 			pathToFxml = ItemPageController.getPathToFxml();
 		
 		super.loadPage(item, pathToFxml, applicationStage, shoppingList, "Item: " + item.getName());
+	}
+
+
+	/**
+	 * This function fills the ShoppingListPage with the saved data as a ShoppingList object
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public void fillPage() throws FileNotFoundException, IOException {
+		this.appendItems();
+		applicationStage.setTitle("my shopping list");
+		applicationStage.show();
+		
+	}
+
+
+	public static String getPathToFxml() {
+		return ShoppingListPageController.pathToFxml;
 	}
 }
