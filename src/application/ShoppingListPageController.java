@@ -15,9 +15,6 @@ public class ShoppingListPageController extends PageController{
 	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
 	
     @FXML
-    private Label projectGradeTextfield;
-    
-    @FXML
     private Button newItemButton; 
 	
     @FXML

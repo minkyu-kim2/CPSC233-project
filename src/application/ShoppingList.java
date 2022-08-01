@@ -5,11 +5,7 @@ import java.util.ArrayList;
 public class ShoppingList {
 	private ArrayList<Item> items;
 	private double totalPrice; 
-	
-	public ShoppingList() {
-		super();
-	}
-	
+		
 	public ShoppingList(ArrayList<Item> items) {
 		this.items = items; 
 	}
