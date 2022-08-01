@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 
-public class ItemPageController {
+public class ItemPageController extends PageController {
 	private static String pathToFxml = "src/application/ItemPage.fxml";
 	private Item item; 
 	private Stage applicationStage; 

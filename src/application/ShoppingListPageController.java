@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ShoppingListPageController {
+public class ShoppingListPageController extends PageController{
 	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
 	private Stage applicationStage; 
 	private ShoppingList shoppingList;
@@ -114,15 +114,9 @@ public class ShoppingListPageController {
 		else
 			pathToFxml = ItemPageController.getPathToFxml();
 		
-		FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream(pathToFxml));
-		Scene scene = new Scene(root,500,400);
-		ItemPageController itemPageController = loader.getController(); 
-		itemPageController.setItem(item);
-		itemPageController.setApplicationStage(applicationStage);
-		itemPageController.fillPage();
-		itemPageController.setShoppingList(shoppingList);
-		applicationStage.setScene(scene);
+		super.loadPage(item, pathToFxml, applicationStage, shoppingList, "Item: " + item.getName());
+		
+
 	}
 	
 }
