@@ -1,6 +1,5 @@
 package application;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -11,6 +10,9 @@ public class NewCarFormController extends NewItemFormController {
 	@FXML TextField makeInput;
 	@FXML TextField yearInput;
 
+	/**
+	 * This function fills the form with an existing data for editing. 
+	 */
 	public void fillPage() {
 
 		if (getItem() instanceof Car) {
@@ -21,7 +23,9 @@ public class NewCarFormController extends NewItemFormController {
 		super.fillPage();
 	}
 	
-
+	/**
+	 * In case the edited item is of type item, this function makes sure the edited object has type Car. 
+	 */
 	public void checkType() {
 		Car car; 
 		int index; 
@@ -36,6 +40,9 @@ public class NewCarFormController extends NewItemFormController {
 		}
 	}
 	
+	/**
+	 * This function saves the information written in the form to the item object. 
+	 */
 	public void updateItemInfo() {
 		((Car)item).setModel(modelInput.getText());
 		((Car)item).setMake(makeInput.getText());

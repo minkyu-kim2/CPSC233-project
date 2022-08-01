@@ -1,20 +1,15 @@
 package application;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
-import application.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class ShoppingListPageController extends PageController{
 	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
@@ -28,7 +23,14 @@ public class ShoppingListPageController extends PageController{
     @FXML
     private VBox itemStack; 
     
-	
+	/**
+	 * This function is fired when the new item button is clicked from the ShoppingListPage.
+	 * On clicking the button, the user is taken to the item category selection page
+	 * 
+	 * @param event
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void addNewItem(ActionEvent event) throws FileNotFoundException, IOException {
 		Scene currentScene = applicationStage.getScene();
 		String currentTitle = applicationStage.getTitle();
@@ -38,6 +40,9 @@ public class ShoppingListPageController extends PageController{
 	}
 	
 	
+	/**
+	 * This function generates a row of HBox for each item in the shopping list to the ShoppingListPage.fxml file
+	 */
 	public void appendItems() {
 		
 		for (Item item : shoppingList.getItems()) {
@@ -65,6 +70,12 @@ public class ShoppingListPageController extends PageController{
 		return ShoppingListPageController.pathToFxml;
 	}
 	
+	/**
+	 * This function fills the ShoppingListPage with the saved data as a ShoppingList object
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void fillPage() throws FileNotFoundException, IOException {
 		this.appendItems();
 		applicationStage.setTitle("my shopping list");
@@ -80,6 +91,14 @@ public class ShoppingListPageController extends PageController{
 		this.shoppingList = shoppingList;
 	}
 	
+	/**
+	 * This function is added as an event listener for every item and gets fired when the detail button is clicked. 
+	 * On clicking the button, the user is taken to the detail page for the item selected. 
+	 * 
+	 * @param item
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void showItemPage(Item item) throws FileNotFoundException, IOException {
 		String pathToFxml;
 		if (item instanceof Car) 

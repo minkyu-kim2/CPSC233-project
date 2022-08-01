@@ -14,9 +14,30 @@ public class PageController {
 	protected ShoppingList shoppingList;
 	protected Stage applicationStage;
 	
+	/**
+	 * Sets the page to the main page
+	 * 
+	 * @param applicationStage
+	 * @param shoppingList
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void goToMainPage(Stage applicationStage, ShoppingList shoppingList) throws FileNotFoundException, IOException {
 		loadPage(null, ShoppingListPageController.getPathToFxml(), applicationStage, shoppingList, "my shopping list");
 	}
+	
+	/**
+	 * load the page whose path is specified in the argument
+	 * 
+	 * @param item
+	 * @param filePath
+	 * @param applicationStage
+	 * @param shoppingList
+	 * @param pageTitle
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public PageController loadPage(Item item, String filePath, Stage applicationStage, ShoppingList shoppingList, String pageTitle) throws FileNotFoundException, IOException {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root = loader.load(new FileInputStream(filePath));

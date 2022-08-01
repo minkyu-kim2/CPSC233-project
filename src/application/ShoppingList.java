@@ -1,8 +1,6 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ShoppingList {
 	private ArrayList<Item> items;
@@ -31,6 +29,7 @@ public class ShoppingList {
 		return items.add(item);
 	}
 	
+	// to be implemented
 	public double getTotalPrice() {
 		return 0;
 	}

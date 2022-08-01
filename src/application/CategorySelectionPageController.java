@@ -1,16 +1,11 @@
 package application;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 public class CategorySelectionPageController extends PageController {
