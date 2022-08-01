@@ -56,7 +56,6 @@
       </VBox>
       <HBox prefHeight="0.0" prefWidth="355.0">
          <children>
-            <Button mnemonicParsing="false" text="Mortgage" />
             <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
             <Button mnemonicParsing="false" onAction="#edit" text="Edit" />
             <Button mnemonicParsing="false" onAction="#close" text="Close" />
