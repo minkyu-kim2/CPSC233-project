@@ -15,10 +15,7 @@ import javafx.event.ActionEvent;
 
 public class ItemPageController extends PageController {
 	private static String pathToFxml = "src/application/ItemPage.fxml";
-	private Item item; 
-	private Stage applicationStage; 
-	private ShoppingList shoppingList; 
-	
+
 	@FXML protected Label categoryLabel;
 	@FXML protected Label nameLabel;
 	@FXML protected Label priceLabel;
@@ -29,63 +26,15 @@ public class ItemPageController extends PageController {
 		close(event);
 	}
 	
-	@FXML public void edit(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		VBox root;
-		try {
-			Scene currentScene = applicationStage.getScene();
-			
-			root = loader.load(new FileInputStream(CategorySelectionPageController.getPathToFxml()));
-			Scene scene = new Scene(root,500,400);
-			applicationStage.setScene(scene);
-			applicationStage.setTitle("my shopping list");
-			CategorySelectionPageController controller = loader.getController(); 
-			
-			controller.setPreviousScene(currentScene);
-			controller.setItem(item);
-			
-			controller.setApplicationStage(applicationStage);
-			controller.setShoppingList(shoppingList);
-			controller.fillPage();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	@FXML public void edit(ActionEvent event) throws FileNotFoundException, IOException {
+		loadPage(item, CategorySelectionPageController.getPathToFxml(), applicationStage, shoppingList, "select a category");
 	}
 	
 	
-	@FXML 
-	public void close(ActionEvent event) throws FileNotFoundException, IOException{
-		FXMLLoader loader = new FXMLLoader();
-		VBox root;
-
-		root = loader.load(new FileInputStream(ShoppingListPageController.getPathToFxml()));
-		Scene scene = new Scene(root,500,400);
-		applicationStage.setScene(scene);
-		applicationStage.setTitle("my shopping list");
-		ShoppingListPageController shoppingListController = loader.getController(); 
-		shoppingListController.setApplicationStage(applicationStage);
-		shoppingListController.setShoppingList(shoppingList);
-		shoppingListController.fillPage();
-
+	@FXML public void close(ActionEvent event) throws FileNotFoundException, IOException{
+		goToMainPage(applicationStage, shoppingList);
 	}
 
-
-	public Item getItem() {
-		return item;
-	}
-	public void setItem(Item item) {
-		this.item = item;
-	}
-	public Stage getApplicationStage() {
-		return applicationStage;
-	}
-	public void setApplicationStage(Stage applicationStage) {
-		this.applicationStage = applicationStage;
-	}
 	
 	public void fillPage() {
 		nameLabel.setText(item.getName());
@@ -100,11 +49,6 @@ public class ItemPageController extends PageController {
 	public static String getPathToFxml() {
 		return pathToFxml;
 	}
-	public ShoppingList getShoppingList() {
-		return shoppingList;
-	}
-	public void setShoppingList(ShoppingList shoppingList) {
-		this.shoppingList = shoppingList;
-	}
+
 
 }

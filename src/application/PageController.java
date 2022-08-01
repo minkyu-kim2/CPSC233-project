@@ -14,8 +14,8 @@ public class PageController {
 	protected ShoppingList shoppingList;
 	protected Stage applicationStage;
 	
-	public void goToMain() {
-		
+	public void goToMainPage(Stage applicationStage, ShoppingList shoppingList) throws FileNotFoundException, IOException {
+		loadPage(null, ShoppingListPageController.getPathToFxml(), applicationStage, shoppingList, "my shopping list");
 	}
 	public PageController loadPage(Item item, String filePath, Stage applicationStage, ShoppingList shoppingList, String pageTitle) throws FileNotFoundException, IOException {
 		FXMLLoader loader = new FXMLLoader();
@@ -27,6 +27,7 @@ public class PageController {
 		pageController.setShoppingList(shoppingList);
 		pageController.fillPage();
 		applicationStage.setScene(scene);
+		applicationStage.setTitle(pageTitle);
 		return pageController; 
 
 	}

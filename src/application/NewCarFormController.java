@@ -14,11 +14,10 @@ public class NewCarFormController extends NewItemFormController {
 	public void fillPage() {
 
 		if (getItem() instanceof Car) {
-			modelInput.setText(((Car)getItem()).getModel());
-			makeInput.setText(((Car)getItem()).getMake());
-			yearInput.setText(((Car)getItem()).getYear()+"");
+			modelInput.setText(((Car)item).getModel());
+			makeInput.setText(((Car)item).getMake());
+			yearInput.setText(((Car)item).getYear()+"");
 		}
-		
 		super.fillPage();
 	}
 	
@@ -38,10 +37,9 @@ public class NewCarFormController extends NewItemFormController {
 	}
 	
 	public void updateItemInfo() {
-		((Car)getItem()).setModel(modelInput.getText());
-		((Car)getItem()).setMake(makeInput.getText());
-		((Car)getItem()).setYear(Integer.parseInt(yearInput.getText()));
-		System.out.println("updateCarInfo: "+modelInput.getText()+makeInput.getText()+Integer.parseInt(yearInput.getText()));
+		((Car)item).setModel(modelInput.getText());
+		((Car)item).setMake(makeInput.getText());
+		((Car)item).setYear(Integer.parseInt(yearInput.getText()));
 		super.updateItemInfo();
 	}
 

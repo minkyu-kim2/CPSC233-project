@@ -31,8 +31,10 @@ public class ShoppingListPageController extends PageController{
 	
 	public void addNewItem(ActionEvent event) throws FileNotFoundException, IOException {
 		Scene currentScene = applicationStage.getScene();
+		String currentTitle = applicationStage.getTitle();
 		CategorySelectionPageController controller = (CategorySelectionPageController) loadPage(null, CategorySelectionPageController.getPathToFxml(), applicationStage, shoppingList, "create a new item");
 		controller.setPreviousScene(currentScene);
+		controller.setPreviousTitle(currentTitle);
 	}
 	
 	
