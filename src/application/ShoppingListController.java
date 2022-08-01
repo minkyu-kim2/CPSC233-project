@@ -60,6 +60,9 @@ public class ShoppingListController {
 			
 			controller.setApplicationStage(applicationStage);
 			controller.setShoppingList(shoppingList);
+			
+			System.out.println("at ShoppingListController" + shoppingList.getItems().size());
+			
 			controller.fillPage();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

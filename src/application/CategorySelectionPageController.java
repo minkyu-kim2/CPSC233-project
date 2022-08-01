@@ -115,6 +115,9 @@ public class CategorySelectionPageController {
 			
 			controller.setApplicationStage(getApplicationStage());
 			controller.setShoppingList(getShoppingList());
+			
+			System.out.println("at CategorySelectionPageController" + shoppingList.getItems().size());
+			
 			controller.fillPage();
 			
 			

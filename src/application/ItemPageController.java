@@ -24,7 +24,10 @@ public class ItemPageController {
 	@FXML protected Label priceLabel;
 	@FXML protected Label detailLabel;
 	@FXML protected Label quantityLabel;
-	@FXML public void delete(ActionEvent event) {}
+	@FXML public void delete(ActionEvent event) throws FileNotFoundException, IOException{
+		shoppingList.getItems().remove(item);
+		close(event);
+	}
 	
 	@FXML public void edit(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();

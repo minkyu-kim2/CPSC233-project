@@ -46,4 +46,12 @@ public class Car extends Item {
 		mortgage = new Mortgage();
 	}
 	
+	public Car(Item item) {
+		super(item);
+		model = "";
+		make = "";
+		year = 2020;
+		mortgage = new Mortgage();
+	}
+	
 }

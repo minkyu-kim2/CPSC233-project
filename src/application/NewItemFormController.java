@@ -30,15 +30,8 @@ public class NewItemFormController {
 	
 	@FXML public void save(ActionEvent event) {
 		
-		item.setName(nameInput.getText());
-		item.setPrice(Double.parseDouble(priceInput.getText()));
-		item.setQuantity(Integer.parseInt(quantityInput.getText()));
-		item.setDescription(descriptionInput.getText());
-		
-		if (!shoppingList.contains(item)) {
-			shoppingList.add(item);
-		}
-		
+		checkType();
+		updateItemInfo();	
 		goToMainPage();
 			
 	}
@@ -46,8 +39,32 @@ public class NewItemFormController {
 	@FXML public void close(ActionEvent event) {
 		goToMainPage();
 	}
+	
+	public void checkType() {
+		Item newItem;
+		int index; 
+		
+		if (item instanceof Car) {
+			newItem = new Item(item);
+			index = getShoppingList().getItems().indexOf(getItem());
+			System.out.println(getShoppingList().getItems().size());
+			shoppingList.getItems().remove(item);
+			shoppingList.getItems().add(index, newItem);
+			setItem(newItem);
+		}
+	}
 
-
+	public void updateItemInfo() {
+		item.setName(nameInput.getText());
+		item.setPrice(Double.parseDouble(priceInput.getText()));
+		item.setQuantity(Integer.parseInt(quantityInput.getText()));
+		item.setDescription(descriptionInput.getText());
+		
+		if (!shoppingList.getItems().contains(item)) {
+			shoppingList.add(item);
+		}
+	}
+	
 	public Item getItem() {
 		return item;
 	}

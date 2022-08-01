@@ -23,6 +23,14 @@ public class Item {
 		setCategory(category);
 	}
 	
+	public Item(Item item) {
+		setName(item.name);
+		setPrice(item.price);
+		setDescription(item.description);
+		setQuantity(item.quantity);
+		setCategory(item.category);
+	}
+	
 	public String getName() {
 		return name;
 	}
