@@ -48,7 +48,7 @@ public class MinkyuMain2 extends Application {
 	}
 	
 	public ShoppingList createSampleList() {
-		Item item1 = new Item("Rav4", 50000, "brand new", 1, "car");
+		Item item1 = new Car("Rav4", 50000, "brand new", 1, "Rav4", "Toyota", 2022);
 		Item item2 = new Item("Iphone 13", 1000, "normal model", 1, "electronic");
 		Item item3 = new Item("Banana", 5, "weighs 2kg", 1, "grocery");
 		ArrayList<Item> itemList = new ArrayList<Item>(Arrays.asList(item1, item2, item3));

@@ -56,7 +56,7 @@ public class ShoppingListController {
 			CategorySelectionPageController controller = loader.getController(); 
 			
 			controller.setPreviousScene(currentScene);
-			controller.setItem(new Item());
+			controller.setItem(null);
 			
 			controller.setApplicationStage(applicationStage);
 			controller.setShoppingList(shoppingList);
@@ -114,8 +114,14 @@ public class ShoppingListController {
 	}
 	
 	public void showItemPage(Item item) throws FileNotFoundException, IOException {
+		String pathToFxml;
+		if (item instanceof Car) 
+			pathToFxml = CarPageController.getPathToFxml();
+		else
+			pathToFxml = ItemPageController.getPathToFxml();
+		
 		FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream(ItemPageController.getPathToFxml()));
+		VBox root = loader.load(new FileInputStream(pathToFxml));
 		Scene scene = new Scene(root,500,400);
 		ItemPageController itemPageController = loader.getController(); 
 		itemPageController.setItem(item);

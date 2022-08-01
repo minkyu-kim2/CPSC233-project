@@ -19,11 +19,11 @@ public class ItemPageController {
 	private Stage applicationStage; 
 	private ShoppingList shoppingList; 
 	
-	@FXML Label categoryLabel;
-	@FXML Label nameLabel;
-	@FXML Label priceLabel;
-	@FXML Label detailLabel;
-	@FXML Label quantityLabel;
+	@FXML protected Label categoryLabel;
+	@FXML protected Label nameLabel;
+	@FXML protected Label priceLabel;
+	@FXML protected Label detailLabel;
+	@FXML protected Label quantityLabel;
 	@FXML public void delete(ActionEvent event) {}
 	
 	@FXML public void edit(ActionEvent event) {

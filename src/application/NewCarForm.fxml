@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="424.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewCarFormController">
+   <children>
+      <HBox prefHeight="51.0" prefWidth="355.0">
+         <children>
+            <Label text="Name: " />
+            <TextField fx:id="nameInput" />
+         </children>
+      </HBox>
+      <HBox prefHeight="51.0" prefWidth="355.0">
+         <children>
+            <Label text="Model:" />
+            <TextField fx:id="modelInput" />
+         </children>
+      </HBox>
+      <HBox prefHeight="51.0" prefWidth="355.0">
+         <children>
+            <Label text="Make: " />
+            <TextField fx:id="makeInput" />
+         </children>
+      </HBox>
+      <HBox prefHeight="51.0" prefWidth="355.0">
+         <children>
+            <Label text="Year: " />
+            <TextField fx:id="yearInput" />
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="355.0">
+         <children>
+            <Label text="Quantity: " />
+            <TextField fx:id="quantityInput" />
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="355.0">
+         <children>
+            <Label text="Category:" />
+            <Label fx:id="categoryLabel" />
+         </children>
+      </HBox>
+      <HBox prefHeight="46.0" prefWidth="355.0">
+         <children>
+            <Label text="Unit price: " />
+            <TextField fx:id="priceInput" />
+         </children>
+      </HBox>
+      <VBox prefHeight="129.0" prefWidth="355.0">
+         <children>
+            <Label text="Detail:" />
+            <TextArea fx:id="descriptionInput" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <HBox prefHeight="0.0" prefWidth="355.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#save" text="Save" />
+            <Button mnemonicParsing="false" onAction="#close" text="Close" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

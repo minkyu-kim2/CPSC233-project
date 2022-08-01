@@ -67,7 +67,10 @@ public class CategorySelectionPageController {
 	}
     
 	public void fillPage() {
-		categoryChoiceBox.setValue(item.getCategory());
+		if (item == null)
+			categoryChoiceBox.setValue("other");
+		else
+			categoryChoiceBox.setValue(item.getCategory());
 	}
 
 	public void setItem(Item item) {
@@ -75,19 +78,33 @@ public class CategorySelectionPageController {
 	}
 
 	@FXML public void onClickNext(ActionEvent event) {
+
+		
 		FXMLLoader loader = new FXMLLoader();
 		VBox root;
 		
-		item.setCategory(categoryChoiceBox.getValue());
-		if (item.getCategory() == "car") {
+		//item.setCategory(categoryChoiceBox.getValue());
+		String pathToFxml;
+		if (categoryChoiceBox.getValue().trim().compareTo("car") == 0) {
+			pathToFxml = NewCarFormController.getPathToFxml();
+			System.out.println("car selected");
 			
-		} else {
-			
+			if (item == null)
+				item = new Car();
 		}
-		
+		else {
+			pathToFxml = NewItemFormController.getPathToFxml();
+			System.out.println("car not selected");
+			
+			if (item == null)
+				item = new Item();
+		}
 		try {
 			//root = loader.load(new FileInputStream(NewItemFormController.getPathToFxml()));
-			root = loader.load(new FileInputStream("src/application/NewItemForm.fxml"));
+			item.setCategory(categoryChoiceBox.getValue().trim());
+			
+			System.out.println(item.getCategory());
+			root = loader.load(new FileInputStream(pathToFxml));
 			
 			Scene scene = new Scene(root,500,400);
 			getApplicationStage().setScene(scene);

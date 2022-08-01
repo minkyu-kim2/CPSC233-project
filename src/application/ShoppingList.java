@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class ShoppingList {
+public class ShoppingList extends ArrayList{
 	private ArrayList<Item> items;
 	private double totalPrice; 
 	
@@ -35,6 +35,10 @@ public class ShoppingList {
 	
 	public double getTotalPrice() {
 		return 0;
+	}
+	
+	public void remove(Item item) {
+		items.remove(item);
 	}
 	
 }
