@@ -16,7 +16,7 @@
 	       		<String fx:value="car" />
 	       		<String fx:value="grocery" />
 	       		<String fx:value="electronic" />
-	       		<String fx:value="real estate" />
+	       		<String fx:value="clothing" />
 	       		<String fx:value="other" />
 	       	</FXCollections>
       	</items>

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import application.Item;
-import exceptions.NoFxmlException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ShoppingListPageController {
-	private static String pathToFxml = "src/application/ShoppingList.fxml";
+	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
 	private Stage applicationStage; 
 	private ShoppingList shoppingList;
 	
@@ -31,14 +30,6 @@ public class ShoppingListPageController {
     @FXML
     private VBox itemStack; 
     
-	public ShoppingListPageController(Item item) {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public ShoppingListPageController() {
-		
-	}
-
 	public void setApplicationStage(Stage applicationStage) {
 		this.applicationStage = applicationStage; 
 	}
@@ -81,7 +72,7 @@ public class ShoppingListPageController {
         	Label itemLabel = new Label("name: " + item.getName() + " price:" + item.getPrice());
         	Button detailButton = new Button("detail");        	
         	
-        	//on button click, load the item detail page
+        	//adding event listeners to detail buttons
         	detailButton.setOnAction(e -> {
         		try {
 					showItemPage(item);

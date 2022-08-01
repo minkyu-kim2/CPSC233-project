@@ -30,7 +30,6 @@ public class Main extends Application {
 			
 			ShoppingList sampleList = createSampleList(); 
 			shoppingListController.setShoppingList(sampleList);
-			//shoppingListController.appendItems();
 			shoppingListController.fillPage();
 			
 			
