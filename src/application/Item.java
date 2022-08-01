@@ -7,6 +7,14 @@ public class Item {
 	private String description;
 	private int quantity;
 	
+	public Item() {
+		setName("");
+		setPrice(0);
+		setDescription("");
+		setQuantity(1);
+		setCategory("other");
+	}
+	
 	public Item(String name, double price, String description, int quantity, String catogory) {
 		setName(name);
 		setPrice(price);

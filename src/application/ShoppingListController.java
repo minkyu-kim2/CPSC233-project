@@ -44,7 +44,27 @@ public class ShoppingListController {
 	}
 	
 	public void addNewItem(ActionEvent event) {
- 		
+		FXMLLoader loader = new FXMLLoader();
+		VBox root;
+		try {
+			root = loader.load(new FileInputStream(CategorySelectionPageController.getPathToFxml()));
+			Scene scene = new Scene(root,500,400);
+			applicationStage.setScene(scene);
+			applicationStage.setTitle("my shopping list");
+			CategorySelectionPageController controller = loader.getController(); 
+			
+			controller.setItem(new Item());
+			
+			controller.setApplicationStage(applicationStage);
+			controller.setShoppingList(shoppingList);
+			controller.fillPage();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

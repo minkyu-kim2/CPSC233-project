@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CategorySelectionPageController">
+   <children>
+      <Label text="Please select a category" />
+      <ChoiceBox prefWidth="150.0" fx:id="categoryChoiceBox">
+        <items>
+	     <FXCollections fx:factory="observableArrayList">
+	       		<String fx:value="car" />
+	       		<String fx:value="grocery" />
+	       		<String fx:value="electronic" />
+	       		<String fx:value="real estate" />
+	       		<String fx:value="other" />
+	       	</FXCollections>
+      	</items>
+      </ChoiceBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" text="back" />
+            <Button mnemonicParsing="false" onAction="#onClickNext" text="next" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
