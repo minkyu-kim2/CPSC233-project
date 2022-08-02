@@ -13,11 +13,11 @@ import javafx.event.ActionEvent;
 public class NewItemFormController extends PageController {
 	private static String pathToFxml = "src/application/NewItemForm.fxml";
 	
-	@FXML Label categoryLabel;
-	@FXML TextField nameInput;
-	@FXML TextField priceInput;
-	@FXML TextArea descriptionInput;
-	@FXML TextField quantityInput;
+	@FXML private Label categoryLabel;
+	@FXML private TextField nameInput;
+	@FXML private TextField priceInput;
+	@FXML private TextArea descriptionInput;
+	@FXML private TextField quantityInput;
 	
 	/**
 	 * This function deletes item from the Shopping List
@@ -32,17 +32,22 @@ public class NewItemFormController extends PageController {
 	}
 	
 	/**
-	 * This function applies the change to the item. 
+	 * This function applies changes to the item object. 
 	 * 
 	 * @param event
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
 	@FXML public void save(ActionEvent event) throws FileNotFoundException, IOException {
-		checkType();
-		updateItemInfo();	
-		goToMainPage(applicationStage, shoppingList);
-			
+		String errorMessage = validateInput(nameInput.getText(), quantityInput.getText(), priceInput.getText());
+		
+		if (errorMessage.trim().length() == 0) {
+			checkType();
+			updateItemInfo();	
+			goToMainPage(applicationStage, shoppingList);
+		} else {
+			System.out.println(errorMessage);
+		}
 	}
 	
 	/**
@@ -102,6 +107,39 @@ public class NewItemFormController extends PageController {
 	
 	public static String getPathToFxml() {
 		return NewItemFormController.pathToFxml;
+	}
+	
+	public String validateInput(String name, String quantity, String price) {
+		String errorMessage="";
+		int decimalCount = 0;
+		if (name.trim().length() == 0) {
+			errorMessage += "please enter name\n";
+		}
+		
+		if (quantity.trim().length() == 0) {
+			errorMessage += "please enter quantity\n";
+		} else {
+			for (char c : quantity.trim().toCharArray())
+				if (Character.isDigit(c) == false) {
+					errorMessage += "please only enter positive integer for quantity\n";
+					break;
+				}
+		}
+		
+		if (price.trim().length() == 0) {
+			errorMessage += "please enter price\n";
+		} else {
+			for (char c : price.trim().toCharArray()) 
+				if (Character.isDigit(c) == false) {
+					if (c == '.' && decimalCount < 2) {
+						decimalCount++;
+					} else {
+					errorMessage += "please only enter positive value for price\n";
+					break;
+					}
+				}
+		}
+		return errorMessage;
 	}
 	
 }
