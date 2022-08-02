@@ -53,4 +53,21 @@ public class NewCarFormController extends NewItemFormController {
 	public static String getPathToFxml() {
 		return pathToFxml;
 	}
+	
+	public String validateInput() {
+		String errorMessage = super.validateInput();
+		String year = yearInput.getText();
+		if (year.trim().length() == 0) {
+			errorMessage += "please enter year\n";
+		} else {
+			for (char c : year.trim().toCharArray())
+				if (Character.isDigit(c) == false) {
+					errorMessage += "please only enter positive integer for year\n";
+					break;
+				}
+		}
+		
+		return errorMessage;
+		
+	}
 }

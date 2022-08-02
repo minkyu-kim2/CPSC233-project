@@ -39,7 +39,7 @@ public class NewItemFormController extends PageController {
 	 * @throws IOException
 	 */
 	@FXML public void save(ActionEvent event) throws FileNotFoundException, IOException {
-		String errorMessage = validateInput(nameInput.getText(), quantityInput.getText(), priceInput.getText());
+		String errorMessage = validateInput();
 		
 		if (errorMessage.trim().length() == 0) {
 			checkType();
@@ -109,7 +109,10 @@ public class NewItemFormController extends PageController {
 		return NewItemFormController.pathToFxml;
 	}
 	
-	public String validateInput(String name, String quantity, String price) {
+	public String validateInput() {
+		String name = nameInput.getText();
+		String quantity = quantityInput.getText();
+		String price = priceInput.getText();
 		String errorMessage="";
 		int decimalCount = 0;
 		if (name.trim().length() == 0) {
@@ -131,7 +134,7 @@ public class NewItemFormController extends PageController {
 		} else {
 			for (char c : price.trim().toCharArray()) 
 				if (Character.isDigit(c) == false) {
-					if (c == '.' && decimalCount < 2) {
+					if (c == '.' && decimalCount < 1) {
 						decimalCount++;
 					} else {
 					errorMessage += "please only enter positive value for price\n";
