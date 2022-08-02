@@ -6,9 +6,9 @@ import javafx.scene.control.TextField;
 public class NewCarFormController extends NewItemFormController {
 	private static String pathToFxml = "src/application/NewCarForm.fxml";
 	
-	@FXML TextField modelInput;
-	@FXML TextField makeInput;
-	@FXML TextField yearInput;
+	@FXML private TextField modelInput;
+	@FXML private TextField makeInput;
+	@FXML private TextField yearInput;
 
 	/**
 	 * In case the edited item is of type item, this function makes sure the edited object has type Car. 

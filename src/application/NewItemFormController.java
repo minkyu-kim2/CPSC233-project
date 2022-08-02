@@ -13,11 +13,11 @@ import javafx.event.ActionEvent;
 public class NewItemFormController extends PageController {
 	private static String pathToFxml = "src/application/NewItemForm.fxml";
 	
-	@FXML private Label categoryLabel;
-	@FXML private TextField nameInput;
-	@FXML private TextField priceInput;
-	@FXML private TextArea descriptionInput;
-	@FXML private TextField quantityInput;
+	@FXML protected Label categoryLabel;
+	@FXML protected TextField nameInput;
+	@FXML protected TextField priceInput;
+	@FXML protected TextArea descriptionInput;
+	@FXML protected TextField quantityInput;
 	
 	/**
 	 * This function deletes item from the Shopping List
