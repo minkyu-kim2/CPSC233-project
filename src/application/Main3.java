@@ -20,6 +20,9 @@ public class Main3 extends Application {
 			PageController pageController = new PageController();
 			pageController.loadFromFile();
 			
+			if(pageController.getShoppingList() == null)
+				return;
+			
 			for (Item item: pageController.getShoppingList().getItems()) {
 				System.out.println(item.getCategory());
 				System.out.println(item.getName());
