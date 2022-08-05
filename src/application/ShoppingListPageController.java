@@ -48,15 +48,12 @@ public class ShoppingListPageController extends PageController{
 		//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html
 		//accessed on August 4 2022
 		Label nameLabel = new Label("name");
-		GridPane.setConstraints(nameLabel, 0, 0);
-		
 		Label categoryLabel = new Label("cateogry");
-		GridPane.setConstraints(categoryLabel, 1, 0);
-		
 		Label priceLabel = new Label("price ($)");
-		GridPane.setConstraints(priceLabel, 2, 0);		
-		
 		Label quantityLabel = new Label("quantity");
+		GridPane.setConstraints(priceLabel, 2, 0);	
+		GridPane.setConstraints(categoryLabel, 1, 0);
+		GridPane.setConstraints(nameLabel, 0, 0);
 		GridPane.setConstraints(quantityLabel, 3, 0);
 
 		grid.getChildren().addAll(nameLabel, categoryLabel, priceLabel, quantityLabel);
