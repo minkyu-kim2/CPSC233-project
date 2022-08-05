@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.GridPane;
 
 public class ShoppingListPageController extends PageController{
 	private static String pathToFxml = "src/application/ShoppingListPage.fxml";
@@ -18,7 +19,11 @@ public class ShoppingListPageController extends PageController{
     private Button newItemButton; 
 	
     @FXML
-    private VBox itemStack; 
+    private VBox itemStack;
+
+	@FXML 
+	private GridPane grid; 
+    
     
 	/**
 	 * This function is fired when the new item button is clicked from the ShoppingListPage.
@@ -63,6 +68,58 @@ public class ShoppingListPageController extends PageController{
     	}
 	}
 	
+	public void fillGrid() {
+		
+		//learned to use fill cells of GridPane from
+		//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html
+		//accessed on August 4 2022
+		Label nameLabel = new Label("name");
+		GridPane.setConstraints(nameLabel, 0, 0);
+		
+		Label categoryLabel = new Label("cateogry");
+		GridPane.setConstraints(categoryLabel, 1, 0);
+		
+		Label priceLabel = new Label("price ($)");
+		GridPane.setConstraints(priceLabel, 2, 0);		
+		
+		Label quantityLabel = new Label("quantity");
+		GridPane.setConstraints(quantityLabel, 3, 0);
+
+		grid.getChildren().addAll(nameLabel, categoryLabel, priceLabel, quantityLabel);
+		
+		int row = 1;
+		
+		for (Item item : shoppingList.getItems()) {
+			nameLabel =  new Label(item.getName());
+			categoryLabel = new Label(item.getCategory());
+			priceLabel = new Label(String.format("%.2f", item.getPrice()));
+			quantityLabel = new Label(String.format("%d", item.getQuantity()));
+			Button detailButton = new Button("detail");  
+			
+			GridPane.setConstraints(nameLabel, 0, row);
+			GridPane.setConstraints(categoryLabel, 1, row);
+			GridPane.setConstraints(priceLabel, 2, row);	
+			GridPane.setConstraints(quantityLabel, 3, row);
+			GridPane.setConstraints(detailButton, 4, row);
+			
+			grid.getChildren().addAll(nameLabel, categoryLabel, priceLabel, quantityLabel, detailButton);
+        	
+        	//adding event listeners to detail buttons
+        	detailButton.setOnAction(e -> {
+        		try {
+					showItemPage(item);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+        	});
+        	
+        	row++;
+        	
+    	}
+	}
+	
 	public ShoppingList getShoppingList() {
 		return shoppingList;
 	}
@@ -97,7 +154,8 @@ public class ShoppingListPageController extends PageController{
 	 * @throws IOException
 	 */
 	public void fillPage() throws FileNotFoundException, IOException {
-		this.appendItems();
+		//this.appendItems();
+		fillGrid();
 		applicationStage.setTitle("my shopping list");
 		applicationStage.show();
 		
