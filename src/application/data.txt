@@ -1,1 +1,1 @@
-"other","ssss",100.0,1,"load"
+"car","Rav4",50000.0,1,"brand new","Rav4","Toyota",2022

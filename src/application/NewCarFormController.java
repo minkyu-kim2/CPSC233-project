@@ -14,7 +14,7 @@ public class NewCarFormController extends NewItemFormController {
 	private TextField yearInput;
 
 	/**
-	 * In case the edited item is originally of type Item, this function  converts
+	 * In case the edited item is originally of type Item, this function converts
 	 * the object type to Car.
 	 */
 	public void checkType() {
@@ -79,7 +79,7 @@ public class NewCarFormController extends NewItemFormController {
 		if (year.trim().length() == 0) {
 			errorMessage += "please enter year\n";
 		} else {
-			// checks that the year is provided as an integer number. 
+			// checks that the year is provided as an integer number.
 			for (char c : year.trim().toCharArray())
 				if (Character.isDigit(c) == false) {
 					errorMessage += "please only enter positive integer for year\n";

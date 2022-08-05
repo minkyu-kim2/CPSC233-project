@@ -6,9 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 import javafx.fxml.FXMLLoader;
@@ -63,12 +61,12 @@ public class PageController {
 	}
 
 	/**
-	 * This function is used to write data stored in items field in ShoppingList object to data.txt in CSV format.
-	 * This function allows data stored in the current session to be accessible in next session. 
+	 * This function is used to write data stored in items field in ShoppingList
+	 * object to data.txt in CSV format. This function allows data stored in the
+	 * current session to be accessible in next session.
 	 * 
-	 * source
-	 * https://www.w3schools.com/java/java_files_create.asp
-	 * accessed on August 4 2022
+	 * source https://www.w3schools.com/java/java_files_create.asp accessed on
+	 * August 4 2022
 	 * 
 	 * @throws IOException
 	 */
@@ -100,15 +98,15 @@ public class PageController {
 		myWriter.close();
 		System.out.println("Successfully wrote to the file.");
 	}
-	
+
 	/**
 	 * 
-	 * This function is used to load data from data.txt file and the data is assigned to items field in ShoppingList object.
-	 * This function allows data from previous session to be accessible in the current session.
+	 * This function is used to load data from data.txt file and the data is
+	 * assigned to items field in ShoppingList object. This function allows data
+	 * from previous session to be accessible in the current session.
 	 * 
-	 * source
-	 * https://www.baeldung.com/java-csv-file-array#scanner
-	 * accessed on August 04 2022
+	 * source https://www.baeldung.com/java-csv-file-array#scanner accessed on
+	 * August 04 2022
 	 */
 	public void loadFromFile() {
 
@@ -146,14 +144,16 @@ public class PageController {
 					items.add(item);
 				}
 			}
-			
-			// create a ShoppingList object with data imported from data.txt file and set it in the shoppingList instance field
+
+			// create a ShoppingList object with data imported from data.txt file and set it
+			// in the shoppingList instance field
 			this.shoppingList = new ShoppingList(items);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
-			// if data.txt file is not found, then create a ShoppingList object with no item stored. 
+			// if data.txt file is not found, then create a ShoppingList object with no item
+			// stored.
 			this.shoppingList = new ShoppingList();
-			
+
 		}
 	}
 

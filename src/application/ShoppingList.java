@@ -4,25 +4,24 @@ import java.util.ArrayList;
 
 public class ShoppingList {
 	private ArrayList<Item> items;
-	private double totalPrice; 
-	
+	private double totalPrice;
+
 	public ShoppingList() {
-		this.items = new ArrayList<Item> ();
+		this.items = new ArrayList<Item>();
 	}
-	
+
 	public ShoppingList(ArrayList<Item> items) {
-		this.items = items; 
+		this.items = items;
 	}
-	
 
 	public ArrayList<Item> getItems() {
 		return items;
 	}
-	
+
 	public void setItems(ArrayList<Item> items) {
 		this.items = items;
 	}
-	
+
 	/**
 	 * This function adds item to the shopping list object.
 	 * 
@@ -34,7 +33,6 @@ public class ShoppingList {
 			items = new ArrayList<Item>();
 		return items.add(item);
 	}
-	
 
 	/**
 	 * to be implemented
@@ -44,6 +42,5 @@ public class ShoppingList {
 	public double getTotalPrice() {
 		return 0;
 	}
-	
-	
+
 }

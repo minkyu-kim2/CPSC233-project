@@ -1,5 +1,5 @@
 package application;
-	
+
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,35 +10,33 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
-
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream(ShoppingListPageController.getPathToFxml()));
-			
-			Scene scene = new Scene(root,500,400);
+
+			Scene scene = new Scene(root, 500, 400);
 			primaryStage.setScene(scene);
-			ShoppingListPageController shoppingListController = loader.getController(); 
+			ShoppingListPageController shoppingListController = loader.getController();
 			shoppingListController.setApplicationStage(primaryStage);
-			
+
 			// import shopping list data from data.txt file
 			shoppingListController.loadFromFile();
-			
+
 			// fills the page with loaded data
 			shoppingListController.fillPage();
-			
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	/**
 	 * This function creates a sample shopping list for demo
 	 * 
@@ -51,7 +49,6 @@ public class Main extends Application {
 		ArrayList<Item> itemList = new ArrayList<Item>(Arrays.asList(item1, item2, item3));
 		ShoppingList sample = new ShoppingList(itemList);
 
-		
-		return sample; 
+		return sample;
 	}
 }
