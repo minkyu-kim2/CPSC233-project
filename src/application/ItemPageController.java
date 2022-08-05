@@ -1,6 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 
 import java.io.FileNotFoundException;
@@ -39,7 +40,11 @@ public class ItemPageController extends PageController {
 	 * @throws IOException
 	 */
 	@FXML public void edit(ActionEvent event) throws FileNotFoundException, IOException {
-		loadPage(item, CategorySelectionPageController.getPathToFxml(), applicationStage, shoppingList, "select a category");
+		Scene currentScene = applicationStage.getScene();
+		String currentTitle = applicationStage.getTitle();
+		CategorySelectionPageController controller = (CategorySelectionPageController) loadPage(null, CategorySelectionPageController.getPathToFxml(), applicationStage, shoppingList, "create a new item");
+		controller.setPreviousScene(currentScene);
+		controller.setPreviousTitle(currentTitle);
 	}
 	
 	
