@@ -23,7 +23,7 @@ public class Main extends Application {
 			ShoppingListPageController shoppingListController = loader.getController(); 
 			shoppingListController.setApplicationStage(primaryStage);
 			
-			shoppingListController.setShoppingList(new ShoppingList());
+			shoppingListController.loadFromFile();
 			shoppingListController.fillPage();
 			
 			

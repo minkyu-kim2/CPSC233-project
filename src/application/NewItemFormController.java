@@ -32,7 +32,7 @@ public class NewItemFormController extends PageController {
 		
 		if (errorMessage.trim().length() == 0) {
 			checkType();
-			updateItemInfo();	
+			updateItemInfo();
 			goToMainPage(applicationStage, shoppingList);
 		} else {
 			System.out.println(errorMessage);
@@ -78,6 +78,11 @@ public class NewItemFormController extends PageController {
 		
 		if (!shoppingList.getItems().contains(item)) {
 			shoppingList.add(item);
+		}
+		try {
+			writeToFile();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	

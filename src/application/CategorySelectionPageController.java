@@ -25,14 +25,12 @@ public class CategorySelectionPageController extends PageController {
 		String pathToFxml;
 		if (categoryChoiceBox.getValue().trim().compareTo("car") == 0) {
 			pathToFxml = NewCarFormController.getPathToFxml();
-			System.out.println("car selected");
 			
 			if (item == null)
 				item = new Car();
 		}
 		else {
 			pathToFxml = NewItemFormController.getPathToFxml();
-			System.out.println("car not selected");
 			
 			if (item == null)
 				item = new Item();

@@ -78,7 +78,7 @@ public class PageController {
 
 			// write additional data for Car object:
 			// model, maker, year
-			if (item.getCategory().compareTo("car")==0) {
+			if (item.getCategory().compareTo("car") == 0) {
 				rowData += "," + "\"" + ((Car) item).getModel() + "\"" + "," + "\"" + ((Car) item).getMake() + "\""
 						+ "," + ((Car) item).getYear();
 			}
@@ -94,40 +94,45 @@ public class PageController {
 	// source
 	// https://www.baeldung.com/java-csv-file-array#scanner
 	// accessed on August 04 2022
-	public void loadFromFile() throws FileNotFoundException {
+	public void loadFromFile() {
 
-		ArrayList<Item> items = new ArrayList<Item>();
-		Item item;
-		Car car;
-		Scanner scanner = new Scanner(new File("src/application/data.txt"));
+		try {
+			ArrayList<Item> items = new ArrayList<Item>();
+			Item item;
+			Car car;
+			Scanner scanner = new Scanner(new File("src/application/data.txt"));
 
-		while (scanner.hasNextLine()) {
-			List<String> rowData = getRecordFromLine(scanner.nextLine());
-			item = new Item();
+			while (scanner.hasNextLine()) {
+				List<String> rowData = getRecordFromLine(scanner.nextLine());
+				item = new Item();
 
-			// set the following fields to the item object
-			// category, name, price, quantity, description
-			item.setCategory(rowData.get(0).replace("\"", ""));
-			item.setName(rowData.get(1).replace("\"", ""));
-			item.setPrice(Double.parseDouble(rowData.get(2)));
-			item.setQuantity(Integer.parseInt(rowData.get(3)));
-			item.setDescription(rowData.get(4).replace("\"", ""));
-			System.out.println("category is " + item.getCategory());
+				// set the following fields to the item object
+				// category, name, price, quantity, description
+				item.setCategory(rowData.get(0).replace("\"", ""));
+				item.setName(rowData.get(1).replace("\"", ""));
+				item.setPrice(Double.parseDouble(rowData.get(2)));
+				item.setQuantity(Integer.parseInt(rowData.get(3)));
+				item.setDescription(rowData.get(4).replace("\"", ""));
+				System.out.println("category is " + item.getCategory());
 
-			// if the category is car, set additional information:
-			// model, maker, year
-			if (item.getCategory().toLowerCase().compareTo("car") == 0) {
-				car = new Car(item);
-				car.setModel(rowData.get(5));
-				car.setMake(rowData.get(6));
-				car.setYear(Integer.parseInt(rowData.get(7)));
-				items.add(car);
-			} else {
-				items.add(item);
+				// if the category is car, set additional information:
+				// model, maker, year
+				if (item.getCategory().toLowerCase().compareTo("car") == 0) {
+					car = new Car(item);
+					car.setModel(rowData.get(5).replace("\"", ""));
+					car.setMake(rowData.get(6).replace("\"", ""));
+					car.setYear(Integer.parseInt(rowData.get(7)));
+					items.add(car);
+				} else {
+					items.add(item);
+				}
 			}
+			this.shoppingList = new ShoppingList(items);
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+			this.shoppingList = new ShoppingList();
+			
 		}
-
-		this.shoppingList = new ShoppingList(items);
 	}
 
 	/**
