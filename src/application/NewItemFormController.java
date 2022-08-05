@@ -73,7 +73,7 @@ public class NewItemFormController extends PageController {
 		Item newItem;
 		int index;
 
-		if (item instanceof Car) {
+		if (item instanceof Car || item instanceof RealEstate) {
 			newItem = new Item(item);
 			index = getShoppingList().getItems().indexOf(getItem());
 			shoppingList.getItems().remove(item);

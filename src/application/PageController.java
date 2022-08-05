@@ -89,6 +89,11 @@ public class PageController {
 			if (item.getCategory().compareTo("car") == 0) {
 				rowData += "," + "\"" + ((Car) item).getModel() + "\"" + "," + "\"" + ((Car) item).getMake() + "\""
 						+ "," + ((Car) item).getYear();
+			// write additional data for RealEstate object:
+			// classification, address
+			} else if (item.getCategory().compareTo("real estate") == 0) {
+				rowData += "," + "\"" + ((RealEstate) item).getClassification() + "\"" + "," + "\""
+						+ ((RealEstate) item).getAddress() + "\"";
 			}
 
 			// append a new line character at the end and write the row to the file
@@ -114,6 +119,7 @@ public class PageController {
 			ArrayList<Item> items = new ArrayList<Item>();
 			Item item;
 			Car car;
+			RealEstate realEstate; 
 			Scanner scanner = new Scanner(new File("src/application/data.txt"));
 
 			while (scanner.hasNextLine()) {
@@ -138,7 +144,15 @@ public class PageController {
 					car.setMake(rowData.get(6).replace("\"", ""));
 					car.setYear(Integer.parseInt(rowData.get(7)));
 					items.add(car);
-				} else {
+				} else if (item.getCategory().toLowerCase().compareTo("real estate") == 0) {
+					// create a new Car object that retains all the information in item variable
+					realEstate = new RealEstate(item);
+					realEstate.setClassification(rowData.get(5).replace("\"", ""));
+					realEstate.setAddress(rowData.get(6).replace("\"", ""));
+					items.add(realEstate);
+				}
+				
+				else {
 					// if the category is not of type Car, just add the item as is
 					items.add(item);
 				}

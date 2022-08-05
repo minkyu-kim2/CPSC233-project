@@ -14,6 +14,7 @@
         <items>
 	     <FXCollections fx:factory="observableArrayList">
 	       		<String fx:value="car" />
+	       		<String fx:value="real estate" />
 	       		<String fx:value="grocery" />
 	       		<String fx:value="electronic" />
 	       		<String fx:value="clothing" />

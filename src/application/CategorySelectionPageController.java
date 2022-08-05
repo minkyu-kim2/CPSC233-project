@@ -35,6 +35,12 @@ public class CategorySelectionPageController extends PageController {
 			// if item is null, then a new Car object needs to be created
 			if (item == null)
 				item = new Car();
+		// checks if "real estate" is selected as the category from drop down menu
+		} else if (categoryChoiceBox.getValue().trim().compareTo("real estate") == 0) {
+			pathToFxml = NewRealEstateFormController.getPathToFxml();
+			// if item is null, then a new Car object needs to be created
+			if (item == null)
+				item = new RealEstate();
 		} else {
 			pathToFxml = NewItemFormController.getPathToFxml();
 

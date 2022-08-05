@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="424.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewRealEstateFormController">
+   <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="93.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name: " />
+            <TextField fx:id="nameInput" GridPane.columnIndex="1" />
+            <Label text="Classification:" GridPane.rowIndex="1" />
+            <TextField fx:id="classificationInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Address: " GridPane.rowIndex="2" />
+            <TextField fx:id="addressInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Quantity: " GridPane.rowIndex="3" />
+            <Label text="Category:" GridPane.rowIndex="4" />
+            <Label fx:id="categoryLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Unit price: " GridPane.rowIndex="5" />
+            <TextField fx:id="priceInput" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="quantityInput" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <VBox prefHeight="129.0" prefWidth="355.0">
+         <children>
+            <Label text="Detail:">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextArea fx:id="descriptionInput" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <HBox prefHeight="0.0" prefWidth="355.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#save" text="Save" />
+            <Button mnemonicParsing="false" onAction="#close" text="Close" />
+         </children>
+      </HBox>
+      <Label fx:id="errorLabel" textFill="RED" />
+   </children>
+</VBox>
