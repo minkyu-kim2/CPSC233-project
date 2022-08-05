@@ -41,33 +41,7 @@ public class ShoppingListPageController extends PageController{
 		controller.setPreviousTitle(currentTitle);
 	}
 	
-	
-	/**
-	 * This function generates a row of HBox for each item in the shopping list to the ShoppingListPage.fxml file
-	 */
-	public void appendItems() {
 		
-		for (Item item : shoppingList.getItems()) {
-        	HBox itemRow = new HBox();
-        	Label itemLabel = new Label("name: " + item.getName() + " price:" + item.getPrice());
-        	Button detailButton = new Button("detail");        	
-        	
-        	//adding event listeners to detail buttons
-        	detailButton.setOnAction(e -> {
-        		try {
-					showItemPage(item);
-				} catch (FileNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-        	});
-        	
-        	itemRow.getChildren().addAll(itemLabel, detailButton);
-        	itemStack.getChildren().add(itemRow);
-    	}
-	}
-	
 	public void fillGrid() {
 		
 		//learned to use fill cells of GridPane from
