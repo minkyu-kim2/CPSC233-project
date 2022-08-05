@@ -7,6 +7,7 @@ public class Item {
 	private String description;
 	private int quantity;
 	
+	// constructor called when no argument is provided.
 	public Item() {
 		setName("");
 		setPrice(0);
@@ -15,6 +16,7 @@ public class Item {
 		setCategory("other");
 	}
 	
+	// constructor called when all the field data is provided from the argument list
 	public Item(String name, double price, String description, int quantity, String category) {
 		setName(name);
 		setPrice(price);
@@ -23,6 +25,7 @@ public class Item {
 		setCategory(category);
 	}
 	
+	// constructor used for creating a copy of an existing Item object 
 	public Item(Item item) {
 		setName(item.name);
 		setPrice(item.price);
@@ -31,6 +34,7 @@ public class Item {
 		setCategory(item.category);
 	}
 	
+	// methods below are setters and getters
 	public String getName() {
 		return name;
 	}

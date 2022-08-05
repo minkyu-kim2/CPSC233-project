@@ -22,7 +22,9 @@ public class ShoppingListPageController extends PageController{
     private VBox itemStack;
 
 	@FXML 
-	private GridPane grid; 
+	private GridPane grid;
+
+	@FXML Label totalPriceLabel; 
     
     
 	/**

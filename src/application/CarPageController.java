@@ -21,6 +21,7 @@ public class CarPageController extends ItemPageController{
 		super.fillPage();
 	}
 
+	// getter function for pathToFxml
 	public static String getPathToFxml() {
 		return pathToFxml;
 	}

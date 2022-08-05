@@ -20,7 +20,7 @@ public class ItemPageController extends PageController {
 	
 	
 	/**
-	 * on clicking the delete button, the item is removed from the shopping list and the user is taken back to the ShoppingListPage.
+	 * on clicking the delete button, the item is removed from the shopping list and the data.txt, and the user is taken back to the ShoppingListPage.
 	 * 
 	 * @param event
 	 * @throws FileNotFoundException
@@ -73,6 +73,8 @@ public class ItemPageController extends PageController {
 		applicationStage.show();
 		
 	}
+	
+	// getter function for pathToFxml
 	public static String getPathToFxml() {
 		return pathToFxml;
 	}

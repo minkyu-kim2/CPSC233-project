@@ -42,7 +42,7 @@ public class PageController {
 	 * @param applicationStage
 	 * @param shoppingList
 	 * @param pageTitle
-	 * @return
+	 * @return a PageController object
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
@@ -62,6 +62,10 @@ public class PageController {
 
 	}
 
+	/**
+	 * This function is used to write data stored in items field in ShoppingList object to data.txt in CSV format
+	 * @throws IOException
+	 */
 	public void writeToFile() throws IOException {
 		File myObj = new File("src/application/data.txt");
 		myObj.createNewFile();
@@ -160,6 +164,7 @@ public class PageController {
 
 	}
 
+	// methods below are setters and getters
 	public Item getItem() {
 		return item;
 	}

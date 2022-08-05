@@ -23,7 +23,10 @@ public class Main extends Application {
 			ShoppingListPageController shoppingListController = loader.getController(); 
 			shoppingListController.setApplicationStage(primaryStage);
 			
+			// import shopping list data from data.txt file
 			shoppingListController.loadFromFile();
+			
+			// fills the page with loaded data
 			shoppingListController.fillPage();
 			
 			
