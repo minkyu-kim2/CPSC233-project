@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
 
 public class ShoppingListPageController extends PageController {
@@ -17,9 +15,6 @@ public class ShoppingListPageController extends PageController {
 
 	@FXML
 	private Button newItemButton;
-
-	@FXML
-	private VBox itemStack;
 
 	@FXML
 	private GridPane grid;

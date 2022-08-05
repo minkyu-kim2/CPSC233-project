@@ -54,5 +54,6 @@
             <Button mnemonicParsing="false" onAction="#close" text="Close" />
          </children>
       </HBox>
+      <Label fx:id="errorLabel" textFill="RED" />
    </children>
 </VBox>

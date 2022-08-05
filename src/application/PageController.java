@@ -128,7 +128,6 @@ public class PageController {
 				item.setPrice(Double.parseDouble(rowData.get(2)));
 				item.setQuantity(Integer.parseInt(rowData.get(3)));
 				item.setDescription(rowData.get(4).replace("\"", ""));
-				System.out.println("category is " + item.getCategory());
 
 				// if the category is car, set additional information:
 				// model, maker, year

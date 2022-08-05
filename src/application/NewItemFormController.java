@@ -76,7 +76,6 @@ public class NewItemFormController extends PageController {
 		if (item instanceof Car) {
 			newItem = new Item(item);
 			index = getShoppingList().getItems().indexOf(getItem());
-			System.out.println(getShoppingList().getItems().size());
 			shoppingList.getItems().remove(item);
 			shoppingList.getItems().add(index, newItem);
 			setItem(newItem);
