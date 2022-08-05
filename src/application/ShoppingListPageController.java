@@ -43,10 +43,12 @@ public class ShoppingListPageController extends PageController{
 		controller.setPreviousTitle(currentTitle);
 	}
 	
-		
+	/**
+	 * fills items in the shopping list to the grid row by row	
+	 */
 	public void fillGrid() {
 		
-		//learned to use fill cells of GridPane from
+		//source 
 		//https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html
 		//accessed on August 4 2022
 		Label nameLabel = new Label("name");
@@ -62,6 +64,7 @@ public class ShoppingListPageController extends PageController{
 		
 		int row = 1;
 		
+		// fills items in the shopping list to the grid row by row	
 		for (Item item : shoppingList.getItems()) {
 			nameLabel =  new Label(item.getName());
 			categoryLabel = new Label(item.getCategory());
@@ -77,7 +80,9 @@ public class ShoppingListPageController extends PageController{
 			
 			grid.getChildren().addAll(nameLabel, categoryLabel, priceLabel, quantityLabel, detailButton);
         	
-        	//adding event listeners to detail buttons
+        	// source
+			// https://www.baeldung.com/javafx-button-eventhandler#reusing-event-handlers
+			// accessed on August 1 2022
         	detailButton.setOnAction(e -> {
         		try {
 					showItemPage(item);
@@ -89,17 +94,10 @@ public class ShoppingListPageController extends PageController{
         	});
         	
         	row++;
-        	
     	}
 	}
-	
-	public ShoppingList getShoppingList() {
-		return shoppingList;
-	}
 
-	public void setShoppingList(ShoppingList shoppingList) {
-		this.shoppingList = shoppingList;
-	}
+
 	
 	/**
 	 * This function is added as an event listener for every item and gets fired when the detail button is clicked. 
@@ -127,13 +125,19 @@ public class ShoppingListPageController extends PageController{
 	 * @throws IOException
 	 */
 	public void fillPage() throws FileNotFoundException, IOException {
-		//this.appendItems();
 		fillGrid();
 		applicationStage.setTitle("my shopping list");
-		applicationStage.show();
-		
+		applicationStage.show();		
 	}
 
+	//methods below are setters and getters 
+	public ShoppingList getShoppingList() {
+		return shoppingList;
+	}
+
+	public void setShoppingList(ShoppingList shoppingList) {
+		this.shoppingList = shoppingList;
+	}
 
 	public static String getPathToFxml() {
 		return ShoppingListPageController.pathToFxml;

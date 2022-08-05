@@ -63,7 +63,13 @@ public class PageController {
 	}
 
 	/**
-	 * This function is used to write data stored in items field in ShoppingList object to data.txt in CSV format
+	 * This function is used to write data stored in items field in ShoppingList object to data.txt in CSV format.
+	 * This function allows data stored in the current session to be accessible in next session. 
+	 * 
+	 * source
+	 * https://www.w3schools.com/java/java_files_create.asp
+	 * accessed on August 4 2022
+	 * 
 	 * @throws IOException
 	 */
 	public void writeToFile() throws IOException {
@@ -94,10 +100,16 @@ public class PageController {
 		myWriter.close();
 		System.out.println("Successfully wrote to the file.");
 	}
-
-	// source
-	// https://www.baeldung.com/java-csv-file-array#scanner
-	// accessed on August 04 2022
+	
+	/**
+	 * 
+	 * This function is used to load data from data.txt file and the data is assigned to items field in ShoppingList object.
+	 * This function allows data from previous session to be accessible in the current session.
+	 * 
+	 * source
+	 * https://www.baeldung.com/java-csv-file-array#scanner
+	 * accessed on August 04 2022
+	 */
 	public void loadFromFile() {
 
 		try {
@@ -107,6 +119,7 @@ public class PageController {
 			Scanner scanner = new Scanner(new File("src/application/data.txt"));
 
 			while (scanner.hasNextLine()) {
+				// parses row written in comma separated sequence as List of String data
 				List<String> rowData = getRecordFromLine(scanner.nextLine());
 				item = new Item();
 
@@ -122,18 +135,23 @@ public class PageController {
 				// if the category is car, set additional information:
 				// model, maker, year
 				if (item.getCategory().toLowerCase().compareTo("car") == 0) {
+					// create a new Car object that retains all the information in item variable
 					car = new Car(item);
 					car.setModel(rowData.get(5).replace("\"", ""));
 					car.setMake(rowData.get(6).replace("\"", ""));
 					car.setYear(Integer.parseInt(rowData.get(7)));
 					items.add(car);
 				} else {
+					// if the category is not of type Car, just add the item as is
 					items.add(item);
 				}
 			}
+			
+			// create a ShoppingList object with data imported from data.txt file and set it in the shoppingList instance field
 			this.shoppingList = new ShoppingList(items);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
+			// if data.txt file is not found, then create a ShoppingList object with no item stored. 
 			this.shoppingList = new ShoppingList();
 			
 		}
@@ -147,7 +165,7 @@ public class PageController {
 	 * August 04 2022
 	 * 
 	 * @param line
-	 * @return List<String>
+	 * @return parsed comma separated string as List of String object
 	 */
 	private List<String> getRecordFromLine(String line) {
 		List<String> values = new ArrayList<String>();
@@ -160,6 +178,7 @@ public class PageController {
 		return values;
 	}
 
+	// fills the page when data to be displayed is available
 	public void fillPage() throws FileNotFoundException, IOException {
 
 	}

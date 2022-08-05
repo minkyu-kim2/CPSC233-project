@@ -27,7 +27,7 @@ public class ShoppingList {
 	 * This function adds item to the shopping list object.
 	 * 
 	 * @param item
-	 * @return
+	 * @return true is item gets added succesfully
 	 */
 	public boolean add(Item item) {
 		if (items == null)
@@ -35,7 +35,12 @@ public class ShoppingList {
 		return items.add(item);
 	}
 	
-	// to be implemented
+
+	/**
+	 * to be implemented
+	 * 
+	 * @return sum of the price of all items in the Shopping List
+	 */
 	public double getTotalPrice() {
 		return 0;
 	}
