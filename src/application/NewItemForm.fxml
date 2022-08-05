@@ -39,7 +39,6 @@
       </VBox>
       <HBox prefHeight="0.0" prefWidth="355.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
             <Button mnemonicParsing="false" onAction="#save" text="Save" />
             <Button mnemonicParsing="false" onAction="#close" text="Close" />
          </children>

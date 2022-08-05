@@ -19,17 +19,6 @@ public class NewItemFormController extends PageController {
 	@FXML protected TextArea descriptionInput;
 	@FXML protected TextField quantityInput;
 	
-	/**
-	 * This function deletes item from the Shopping List
-	 * 
-	 * @param event
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	@FXML public void delete(ActionEvent event) throws FileNotFoundException, IOException{
-		shoppingList.getItems().remove(item);
-		close(event);
-	}
 	
 	/**
 	 * This function applies changes to the item object. 
