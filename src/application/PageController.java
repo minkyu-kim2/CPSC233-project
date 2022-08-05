@@ -1,7 +1,9 @@
 package application;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
@@ -52,6 +54,42 @@ public class PageController {
 		return pageController; 
 
 	}
+	
+	private void writeToFile() throws IOException {
+		
+		File myObj = new File("src/application/data.txt");
+		myObj.createNewFile();
+		FileWriter myWriter = new FileWriter("src/application/data.txt");
+		String rowData; 
+		
+		// save items as rows of CSV in the following order:
+		// category, name, price, quantity, description
+		for (Item item : shoppingList.getItems()) {
+					
+			//enclose string data in "" to bypass potential errors with comma 
+			rowData = "\"" + item.getCategory() + "\""+ "," 
+			+ "\"" + item.getName() + "\""+ "," 
+			+ item.getPrice() + "," 
+			+ item.getQuantity() + "," 
+			+ "\""+ item.getDescription() + "\""; 
+	
+			// write additional data for Car object
+			if (item.getCategory() == "car") {
+				rowData += "\""+ ((Car)item).getModel()  + "\"" + "," 
+				+ "\""+ ((Car)item).getModel()  + "\""+ "," 
+				+ ((Car)item).getYear();	
+			} 
+			
+			// append new line character at the end and write the row to the file 
+			rowData += "\n";
+			myWriter.write(rowData);
+		}
+		  
+		
+		myWriter.close();
+		System.out.println("Successfully wrote to the file."); 
+	}
+	
 	
 	public void fillPage() throws FileNotFoundException, IOException {
 		
