@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import ReadAndWrite.MyCustomObject;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -63,7 +62,7 @@ public class PageController {
 
 	}
 
-	private void writeToFile() throws IOException {
+	public void writeToFile() throws IOException {
 		File myObj = new File("src/application/data.txt");
 		myObj.createNewFile();
 		FileWriter myWriter = new FileWriter("src/application/data.txt");
@@ -79,7 +78,7 @@ public class PageController {
 
 			// write additional data for Car object:
 			// model, maker, year
-			if (item.getCategory() == "car") {
+			if (item.getCategory().compareTo("car")==0) {
 				rowData += "," + "\"" + ((Car) item).getModel() + "\"" + "," + "\"" + ((Car) item).getMake() + "\""
 						+ "," + ((Car) item).getYear();
 			}
@@ -92,14 +91,14 @@ public class PageController {
 		System.out.println("Successfully wrote to the file.");
 	}
 
-
 	// source
 	// https://www.baeldung.com/java-csv-file-array#scanner
 	// accessed on August 04 2022
-	private void loadFromFile() throws FileNotFoundException {
+	public void loadFromFile() throws FileNotFoundException {
 
 		ArrayList<Item> items = new ArrayList<Item>();
 		Item item;
+		Car car;
 		Scanner scanner = new Scanner(new File("src/application/data.txt"));
 
 		while (scanner.hasNextLine()) {
@@ -113,23 +112,27 @@ public class PageController {
 			item.setPrice(Double.parseDouble(rowData.get(2)));
 			item.setQuantity(Integer.parseInt(rowData.get(3)));
 			item.setDescription(rowData.get(4).replace("\"", ""));
+			System.out.println("category is " + item.getCategory());
 
-			// if the category is object, set additional information:
+			// if the category is car, set additional information:
 			// model, maker, year
-			if (item.getCategory().toLowerCase() == "car") {
-				((Car) item).setModel(rowData.get(5));
-				((Car) item).setMake(rowData.get(6));
-				((Car) item).setYear(Integer.parseInt(rowData.get(7)));
+			if (item.getCategory().toLowerCase().compareTo("car") == 0) {
+				car = new Car(item);
+				car.setModel(rowData.get(5));
+				car.setMake(rowData.get(6));
+				car.setYear(Integer.parseInt(rowData.get(7)));
+				items.add(car);
+			} else {
+				items.add(item);
 			}
-			items.add(item);
 		}
 
-		this.shoppingList.setItems(items);
+		this.shoppingList = new ShoppingList(items);
 	}
 
 	/**
-	 * parses a line of data separated by a comma and returns them as a list of
-	 * String
+	 * This is a helper function for loadFromFile parses a line of data separated by
+	 * a comma and returns them as a list of String
 	 * 
 	 * source: https://www.baeldung.com/java-csv-file-array#scanner accessed on
 	 * August 04 2022
