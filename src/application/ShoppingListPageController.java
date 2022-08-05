@@ -25,7 +25,7 @@ public class ShoppingListPageController extends PageController {
 	private GridPane grid;
 
 	@FXML
-	Label totalPriceLabel;
+	private Label totalPriceLabel;
 
 	/**
 	 * This function is fired when the new item button is clicked from the
