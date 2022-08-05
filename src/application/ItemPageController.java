@@ -28,6 +28,7 @@ public class ItemPageController extends PageController {
 	 */
 	@FXML public void delete(ActionEvent event) throws FileNotFoundException, IOException{
 		shoppingList.getItems().remove(item);
+		writeToFile();
 		close(event);
 	}
 	

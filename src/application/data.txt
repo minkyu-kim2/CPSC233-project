@@ -1,2 +1,1 @@
-"other","dummy",100.0,1,"load"
-"car","sa",30000.0,1,"white","accord","honda",2022
+"other","ssss",100.0,1,"load"

@@ -18,7 +18,9 @@ public class NewItemFormController extends PageController {
 	@FXML protected TextField priceInput;
 	@FXML protected TextArea descriptionInput;
 	@FXML protected TextField quantityInput;
-	
+	@FXML protected Label errorLabel;
+
+
 	
 	/**
 	 * This function applies changes to the item object. 
@@ -34,9 +36,9 @@ public class NewItemFormController extends PageController {
 			checkType();
 			updateItemInfo();
 			goToMainPage(applicationStage, shoppingList);
-		} else {
-			System.out.println(errorMessage);
-		}
+
+		} 
+		errorLabel.setText(errorMessage);
 	}
 	
 	/**
