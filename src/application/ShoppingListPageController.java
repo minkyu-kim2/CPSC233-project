@@ -124,6 +124,7 @@ public class ShoppingListPageController extends PageController {
 		fillGrid();
 		applicationStage.setTitle("my shopping list");
 		applicationStage.show();
+		totalPriceLabel.setText(String.format(" %.2f$", shoppingList.getTotalPrice()));
 	}
 
 	// methods below are setters and getters

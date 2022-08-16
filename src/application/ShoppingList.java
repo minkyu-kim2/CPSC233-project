@@ -40,7 +40,12 @@ public class ShoppingList {
 	 * @return sum of the price of all items in the Shopping List
 	 */
 	public double getTotalPrice() {
-		return 0;
+		double totalPrice = 0;
+		
+		for (Item item: items) {
+			totalPrice += item.getPrice()*item.getQuantity();
+		}
+		return totalPrice;
 	}
 
 }

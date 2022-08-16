@@ -1,1 +1,2 @@
-"car","Rav4",50000.0,1,"brand new","Rav4","Toyota",2022
+"grocery","apple",10.0,5,"ambrosia"
+"car","Civic",20000.0,3,"white","Civic","Honda",2020
