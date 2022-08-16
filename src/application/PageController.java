@@ -101,7 +101,6 @@ public class PageController {
 			myWriter.write(rowData);
 		}
 		myWriter.close();
-		System.out.println("Successfully wrote to the file.");
 	}
 
 	/**
